@@ -33,10 +33,12 @@ public class Human extends characters{
 
         switch(playermove){
             case "w":
-
-                if(humanYcord != 0){
+                if(humanYcord != min){
                     board[humanXcord][humanYcord]= "Land"; //replace previous human with land
                     humanYcord -=1;                        //if its the other way " =-1 thats setting it to -1
+
+                    //if theres a goblin on this supposed coordinate, make em fight
+                    //vvvvvv if the human wins they take that tile
                     board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
                     System.out.println("player -" + playername + "- moves UP to position " +  humanXcord + "," + humanYcord); //move announcement
 
@@ -45,7 +47,50 @@ public class Human extends characters{
                 printarray(board);
                 return board;
 
+            case "s": //going down
+                if(humanYcord != max){
+                    board[humanXcord][humanYcord]= "Land"; //replace previous human with land
+                    humanYcord +=1;                        //if its the other way " =-1 thats setting it to -1
 
+                    //if theres a goblin on this supposed coordinate, make em fight
+                    //vvvvvv if the human wins they take that tile
+                    board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
+                    System.out.println("player -" + playername + "- moves DOWN to position " +  humanXcord + "," + humanYcord); //move announcement
+
+
+                }
+                printarray(board);
+                return board;
+
+            case "a": //going left
+                if(humanXcord != min){
+                board[humanXcord][humanYcord]= "Land"; //replace previous human with land
+                humanXcord -=1;                        //if its the other way " =-1 thats setting it to -1
+
+                //if theres a goblin on this supposed coordinate, make em fight
+                //vvvvvv if the human wins they take that tile
+                board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
+                System.out.println("player -" + playername + "- moves LEFT to position " +  humanXcord + "," + humanYcord); //move announcement
+
+
+            }
+            printarray(board);
+            return board;
+
+            case "d": //going right
+                if(humanXcord != max){
+                    board[humanXcord][humanYcord]= "Land"; //replace previous human with land
+                    humanXcord +=1;                        //if its the other way " =-1 thats setting it to -1
+
+                    //if theres a goblin on this supposed coordinate, make em fight
+                    //vvvvvv if the human wins they take that tile
+                    board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
+                    System.out.println("player -" + playername + "- moves RIGHT to position " +  humanXcord + "," + humanYcord); //move announcement
+
+
+                }
+                printarray(board);
+                return board;
 
             default:
                 return board;

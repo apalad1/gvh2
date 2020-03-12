@@ -17,10 +17,12 @@ public class gvhgame {
 
         landboard landy = new landboard();
 
+        for(int testturns = 0; testturns < 5; testturns++){
+            System.out.println("wasd to move");
+            hplayer.movement(board);
+            System.out.println(hplayer.toString());
+        }
 
-        System.out.println("wasd to move");
-        hplayer.movement(board);
-        System.out.println(hplayer.toString());
     }
 
 }
