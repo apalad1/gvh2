@@ -8,8 +8,8 @@ public class landboard extends gvhgame {
 
 
     void initialboard(){
-        System.out.print("Human position is " + HumanpositionX + "," + HumanpositionY);
-        System.out.println(" || Goblin position is " + GoblinpositionX + "," + GoblinpositionY);
+        System.out.print("Initial Human position is " + HumanpositionX + "," + HumanpositionY);
+        System.out.println(" || Initial Goblin position is " + GoblinpositionX + "," + GoblinpositionY);
         board[HumanpositionX][HumanpositionY] = "HUMA";
         board[GoblinpositionX][GoblinpositionY] = "GOBL";
     }
@@ -36,6 +36,10 @@ public class landboard extends gvhgame {
         System.out.println(board[0][3] + " " + board[1][3] + " " + board[2][3] + " " + board[3][3]);
     }
 
+    public void Announce(int humanXcord, int humanYcord){
+        System.out.print("Initial Human position is " + humanXcord + "," + humanYcord);
+
+    }
 
 
 }

@@ -4,13 +4,13 @@ public class Human extends characters{
     public int humanXcord;
     public int humanYcord;
     public String playername;
-    public Human(int atk, int hp, String[][]board){
-        super(atk, hp, board);
+    public Human(int humanhp, int humanatk, String[][]board, int goblinhp, int goblinatk){
+        super(humanhp, humanatk, board, goblinhp, goblinatk);
         //scanner to take in playername
         playername = "ap";
     }
     public void setatk(){
-        atk = 3;
+        humanatk += 1;
     }
     //movement method - atm it just sets position0,0 to "huma"
     //then returns it
@@ -20,8 +20,6 @@ public class Human extends characters{
         String playermove = scanthing.nextLine();
 
         //take the current position of the human in the board
-        //take the current position of the human in the board
-
         for(int x=0; x<max+1;x++){
             for(int y=0;y<max+1;y++){
                 if(board[x][y] != "Land" && board[x][y] != "GOBL"){
@@ -30,6 +28,7 @@ public class Human extends characters{
                 }
             }
         }
+
 
         switch(playermove){
             case "w":
@@ -40,7 +39,7 @@ public class Human extends characters{
                     //if theres a goblin on this supposed coordinate, make em fight
                     //vvvvvv if the human wins they take that tile
                     board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
-                    System.out.println("player -" + playername + "- moves UP to position " +  humanXcord + "," + humanYcord); //move announcement
+                    System.out.println("player -" + playername + "- moves UP to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
 
 
                 }
@@ -55,7 +54,7 @@ public class Human extends characters{
                     //if theres a goblin on this supposed coordinate, make em fight
                     //vvvvvv if the human wins they take that tile
                     board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
-                    System.out.println("player -" + playername + "- moves DOWN to position " +  humanXcord + "," + humanYcord); //move announcement
+                    System.out.println("player -" + playername + "- moves DOWN to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
 
 
                 }
@@ -70,7 +69,7 @@ public class Human extends characters{
                 //if theres a goblin on this supposed coordinate, make em fight
                 //vvvvvv if the human wins they take that tile
                 board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
-                System.out.println("player -" + playername + "- moves LEFT to position " +  humanXcord + "," + humanYcord); //move announcement
+                System.out.println("player -" + playername + "- moves LEFT to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
 
 
             }
@@ -85,7 +84,7 @@ public class Human extends characters{
                     //if theres a goblin on this supposed coordinate, make em fight
                     //vvvvvv if the human wins they take that tile
                     board[humanXcord][humanYcord] = "HUMA"; // replace previous land with human
-                    System.out.println("player -" + playername + "- moves RIGHT to position " +  humanXcord + "," + humanYcord); //move announcement
+                    System.out.println("player -" + playername + "- moves RIGHT to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
 
 
                 }
@@ -97,13 +96,17 @@ public class Human extends characters{
         }
 
     }
-
-
+    //a method to be called to check if the human will overlap with the goblin
+    //that method should supercall the characters' combat method
+    public boolean overlap(){
+        super.combat(humanhp, humanatk, goblinhp, goblinatk, isgameover);
+        return isgameover;
+    }
 
     ///////////////////////////
     @Override
     public String toString(){
-        return ("player -" + playername + "- has: " + super.toString() );
+        return ("player -" + playername + "- has " + super.toString() );
     }
     @Override
     public void printarray(String[][] board){
