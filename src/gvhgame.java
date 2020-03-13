@@ -3,8 +3,12 @@ import java.util.Scanner;
 
 public class gvhgame {
 
-    public static String[][] board = new String[4][4];
+    public static String[][] board = new String[5][5];
     public static boolean isgameover = false;
+    public static int hatk;
+    public static int hhp;
+    public static int gatk;
+    public static int ghp;
 
     public static void main(String[]args){
         landboard land = new landboard();
@@ -12,21 +16,26 @@ public class gvhgame {
         land.setBoard();
 
 
-        Human hplayer = new Human(3,2, board, 2, 1);     //sets hplayer stats
-        hplayer.setatk();
+        Human hplayer = new Human(1,1, board);     //sets hplayer stats
+        hatk = hplayer.setatk(300);  //applies vs everything else
+        hhp = hplayer.sethp(150);
+
+        Goblin gobbles = new Goblin(1,1, board);
+        gatk = gobbles.setatk(10);
+        ghp = gobbles.sethp(4);
 
 
-        Goblin gobbles = new Goblin(3,2, board, 2, 1);
-        //while(isgameover == false) {
 
-            for(int testturns = 0; testturns < 5; testturns++){     //run it 5 times just to test, should be while game is up
+        while(isgameover == false) {
+
+            //for(int testturns = 0; testturns < 10; testturns++){     //run it 5 times just to test, should be while game is up
             System.out.println("wasd to move");                 //on actual just use boolean isgamewon = false to keep it
             hplayer.movement(board);
             System.out.println(hplayer.toString());
             System.out.println(gobbles.toString());
-            }
+           // }
 
-        //}
+        }
 
 
     }

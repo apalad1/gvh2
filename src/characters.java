@@ -1,44 +1,32 @@
 public class characters extends landboard {
 
-    public int humanatk;
-    public int humanhp;
-    public int goblinatk;
-    public int goblinhp;
+    public int atk;                //have a base 'atk' and 'hp stat in the characters class
+    public int hp;                 //have the human set that atk equal to its humanatk var thats in the human class
+                                        //same with goblin
 
-    public characters(int humanhp, int humanatk, String[][]board, int goblinhp, int goblinatk){
-        this.humanatk = humanatk;
-        this.humanhp = humanhp;
+
+    public characters(int hp, int atk, String[][]board){
+        this.hp = hp;
+        this.atk = atk;
         this.board = board;
-        this.goblinatk = goblinatk;
-        this.goblinhp = goblinhp;
+
     }
 
 
     public String toString(){
-        return ("hp:" + humanhp + " || atk:" + humanatk);
-    }
-    public String toString2(){
-        return ("hp:" + goblinhp + " || atk:" + goblinatk);
+        return ("hp:" + hp + " || atk:" + atk);
     }
 
-    //call this on
-    public boolean combat(int humanhp, int humanatk, int goblinhp, int goblinatk, boolean isgameover){
-        while(humanhp != 0 || goblinhp != 0){               //combat has em fight till one hits 0
-            goblinhp = goblinhp - humanatk;
-            if(goblinhp <= 0){
-                System.out.println("Game Won");
-                isgameover = true;
-            }
-            humanhp = humanhp - goblinatk;
-            if(humanhp <= 0){
-                System.out.println("Game Loss");
-                isgameover = true;
-            }
-
-
-        }
-        return isgameover;
+    //think this would work for multiple goblins if they all have the same stats just dif names to show which goblin on the board is removed
+    public int combat(){
+        hhp = hhp - gatk;
+        //ghp = ghp - hatk; loop the fight till one of em hits 0
+        //if hhp <= 0 -> isgameover = true ; print "game loss"
+        //else if ghp <=0 -> locate the board with 'GOBL'replace it with land or replace it with a respawn?
+        System.out.println("hp left after combat " + hhp);
+        return hhp;
     }
+
 
 
 
