@@ -23,7 +23,7 @@ public class characters extends landboard {
         //ghp = ghp - hatk; loop the fight till one of em hits 0
         //if hhp <= 0 -> isgameover = true ; print "game loss"
         //else if ghp <=0 -> locate the board with 'GOBL'replace it with land or replace it with a respawn?
-        System.out.println("hp left after combat " + hhp);
+        System.out.println("*** hp left after combat " + hhp + " ***");
         return hhp;
     }
 

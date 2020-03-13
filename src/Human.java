@@ -17,9 +17,9 @@ public class Human extends characters{
     public int sethp(int b){
         this.hp = b;
         return hp;
-    }
-
-
+    }                                                                   //"\u03D8"       //human symbol
+                                                                        //"\u0260"     //goblin symbol
+                                                                        //"\u009D"       //land symbol
     public String[][] movement(String[][]board){
         //scanner for the input w, a, s, d
         Scanner scanthing = new Scanner(System.in);
@@ -40,71 +40,68 @@ public class Human extends characters{
             case "w": //going up
                 System.out.println("player -" + playername + "- moves UP to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
                 if(humanYcord != min){
+                    //if theres a goblin on this supposed coordinate, make em fight
+                     if(board[humanXcord][humanYcord-1] == "\u0260"){
+                         overlap();
+                     }
                     board[humanXcord][humanYcord]= "\u009D"; //replace previous human with land
                     humanYcord -=1;                        //if its the other way " =-1 thats setting it to -1
-
-                    //if theres a goblin on this supposed coordinate, make em fight
-                    //if(board[humanXcord][humanYcord-1] == "GOBL"){
-                        overlap();
-                   // }
 
                     board[humanXcord][humanYcord] = "\u03D8"; // replace previous land with human
 
                 }
-                printarray(board);
+                super.printarray(board);
                 return board;
 
             case "s": //going down
                 if(humanYcord != max){
+                    //if theres a goblin on this supposed coordinate, make em fight
+                     if(board[humanXcord][humanYcord+1] == "\u0260"){
+                       overlap();
+                    }
                     board[humanXcord][humanYcord]= "\u009D"; //replace previous human with land
                     humanYcord +=1;                        //if its the other way " =-1 thats setting it to -1
-
-                    //if theres a goblin on this supposed coordinate, make em fight
-                   // if(board[humanXcord][humanYcord+1] == "GOBL"){
-                     //   overlap();
-                    //}
 
                     board[humanXcord][humanYcord] = "\u03D8"; // replace previous land with human
                     System.out.println("player -" + playername + "- moves DOWN to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
 
 
                 }
-                printarray(board);
+                super.printarray(board);
                 return board;
 
             case "a": //going left
                 if(humanXcord != min){
+                    //if theres a goblin on this supposed coordinate, make em fight
+                    if(board[humanXcord-1][humanYcord] == "\u0260"){
+                       overlap();
+                     }
                 board[humanXcord][humanYcord]= "\u009D"; //replace previous human with land
                 humanXcord -=1;                        //if its the other way " =-1 thats setting it to -1
 
-                    //if theres a goblin on this supposed coordinate, make em fight
-                    //if(board[humanXcord-1][humanYcord] == "GOBL"){
-                     //   overlap();
-                   // }
                 board[humanXcord][humanYcord] = "\u03D8"; // replace previous land with human
                 System.out.println("player -" + playername + "- moves LEFT to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
 
 
             }
-            printarray(board);
+            super.printarray(board);
             return board;
 
             case "d": //going right
                 if(humanXcord != max){
+                    //if theres a goblin on this supposed coordinate, make em fight
+                     if(board[humanXcord+1][humanYcord] == "\u0260"){
+                       overlap();
+                     }
                     board[humanXcord][humanYcord]= "\u009D"; //replace previous human with land
                     humanXcord +=1;                        //if its the other way " =-1 thats setting it to -1
-
-                    //if theres a goblin on this supposed coordinate, make em fight
-                   // if(board[humanXcord+1][humanYcord] == "GOBL"){
-                     //   overlap();
-                   // }
 
                     board[humanXcord][humanYcord] = "\u03D8"; // replace previous land with human
                     System.out.println("player -" + playername + "- moves RIGHT to position " +  humanXcord + "," + humanYcord + " ---------------"); //move announcement
 
 
                 }
-                printarray(board);
+                super.printarray(board);
                 return board;
 
             default:
@@ -115,7 +112,6 @@ public class Human extends characters{
     //a method to be called to check if the human will overlap with the goblin
     public boolean overlap(){
         super.combat();
-        //System.out.println("after super"); still goes here
         //run through the board, replace GOBL tile with land
         if(hhp <= 0){
             isgameover = true;
@@ -128,12 +124,7 @@ public class Human extends characters{
     public String toString(){
         return ("player -" + playername + "- has hp:" + hhp + " || atk:" + hatk );
     }
-    @Override
-    public void printarray(String[][] board){
-        System.out.println(board[0][0] + " " + board[1][0] + " " + board[2][0] + " " + board[3][0] + " " + board[4][0]);
-        System.out.println(board[0][1] + " " + board[1][1] + " " + board[2][1] + " " + board[3][1] + " " + board[4][1]);
-        System.out.println(board[0][2] + " " + board[1][2] + " " + board[2][2] + " " + board[3][2] + " " + board[4][2]);
-        System.out.println(board[0][3] + " " + board[1][3] + " " + board[2][3] + " " + board[3][3] + " " + board[4][3]);
-        System.out.println(board[0][4] + " " + board[1][4] + " " + board[2][4] + " " + board[3][4] + " " + board[4][4]);
-    }
+   // @Override  calling the superclass from landboard does this
+   // public void printarray(String[][] board){
+   // }
 }
