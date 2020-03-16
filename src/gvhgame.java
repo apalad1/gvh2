@@ -11,6 +11,7 @@ public class gvhgame {
     public static int ghp;
 
     public static void main(String[]args){
+        System.out.println("WELCOME TO THE GAME, ENTER YOUR PLAYER NAME");
         landboard land = new landboard();
         land.initialboard();                //call out the initial state of the board
         land.setBoard();
@@ -23,6 +24,7 @@ public class gvhgame {
         Goblin gobbles = new Goblin(1,1, board);
         gatk = gobbles.setatk(5);
         ghp = gobbles.sethp(5);
+
 
 
 

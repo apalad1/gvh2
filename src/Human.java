@@ -9,9 +9,13 @@ public class Human extends characters{
     public boolean anygoblinsleft = false;
     public Human(int hp, int atk, String[][]board){
         super(hp, atk, board);
-        //scanner to take in playername
-        playername = "ap";
+       
+        Scanner scanthing = new Scanner(System.in);
+        String userinp = scanthing.nextLine();
+        playername = userinp;
+        System.out.println("Welcome " + playername);
     }
+
     public int setatk(int a){
         this.atk = a;
         return atk;
@@ -22,6 +26,10 @@ public class Human extends characters{
     }                                                                   //"\u03D8"       //human symbol
                                                                         //"\u0260"     //goblin symbol
                                                                         //"\u009D"       //land symbol
+
+
+
+
     public String[][] movement(String[][]board){
         //scanner for the input w, a, s, d
         Scanner scanthing = new Scanner(System.in);
@@ -129,7 +137,6 @@ public class Human extends characters{
             isgameover = true;
             System.out.println("PLAYER LOSS!!! PLAYER LOSS!!! PLAYER LOSS!!!");
         }
-
         return isgameover;
 
     }
