@@ -17,24 +17,20 @@ public class gvhgame {
 
 
         Human hplayer = new Human(1,1, board);     //sets hplayer stats
-        hatk = hplayer.setatk(300);  //applies vs everything else
-        hhp = hplayer.sethp(150);
+        hatk = hplayer.setatk(100);  //applies vs everything else
+        hhp = hplayer.sethp(100);
 
         Goblin gobbles = new Goblin(1,1, board);
-        gatk = gobbles.setatk(10);
-        ghp = gobbles.sethp(4);
+        gatk = gobbles.setatk(5);
+        ghp = gobbles.sethp(5);
 
 
 
         while(isgameover == false) {
-
-            //for(int testturns = 0; testturns < 10; testturns++){     //run it 5 times just to test, should be while game is up
             System.out.println("wasd to move");                 //on actual just use boolean isgamewon = false to keep it
             hplayer.movement(board);
             System.out.println(hplayer.toString());
             System.out.println(gobbles.toString());
-           // }
-
         }
 
 

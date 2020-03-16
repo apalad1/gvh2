@@ -18,6 +18,6 @@ public class Goblin extends characters {
 
     @Override
     public String toString(){
-        return ("gobbles has " + super.toString());
+        return ("goblin has " + super.toString());
     }
 }

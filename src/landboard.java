@@ -8,6 +8,11 @@ public class landboard extends gvhgame {
 
 
     void initialboard(){
+        //if the human and goblin would be starting in the same spot, reverse the goblins position
+        if((HumanpositionX == GoblinpositionX) && (HumanpositionY == GoblinpositionY)){
+            GoblinpositionX = HumanpositionY+1;
+            GoblinpositionY = HumanpositionX+1;
+        }
         System.out.print("Initial Human position is " + HumanpositionX + "," + HumanpositionY);
         System.out.println(" || Initial Goblin position is " + GoblinpositionX + "," + GoblinpositionY);
         board[HumanpositionX][HumanpositionY] = "\u03D8";       //human symbol
