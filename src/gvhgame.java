@@ -29,10 +29,12 @@ public class gvhgame {
 
 
         while(isgameover == false) {
-            System.out.println("wasd to move");                 //on actual just use boolean isgamewon = false to keep it
+            System.out.println("wasd to move");
+            gobbles.catchme(board);
             hplayer.movement(board);
             System.out.println(hplayer.toString());
             System.out.println(gobbles.toString());
+
         }
 
 

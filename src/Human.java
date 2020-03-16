@@ -9,7 +9,7 @@ public class Human extends characters{
     public boolean anygoblinsleft = false;
     public Human(int hp, int atk, String[][]board){
         super(hp, atk, board);
-       
+
         Scanner scanthing = new Scanner(System.in);
         String userinp = scanthing.nextLine();
         playername = userinp;
@@ -62,7 +62,7 @@ public class Human extends characters{
                         board[humanXcord][humanYcord] = "\u0260";
                     }
                 }
-                super.printarray(board);
+                //super.printarray(board);
                 leftovers(anygoblinsleft);
                 return board;
 
@@ -81,7 +81,7 @@ public class Human extends characters{
                         board[humanXcord][humanYcord] = "\u0260";
                     }
                 }
-                super.printarray(board);
+                //super.printarray(board);
                 leftovers(anygoblinsleft);
                 return board;
 
@@ -100,7 +100,7 @@ public class Human extends characters{
                         board[humanXcord][humanYcord] = "\u0260";
                     }
             }
-            super.printarray(board);
+            //super.printarray(board);
                 leftovers(anygoblinsleft);
             return board;
 
@@ -120,7 +120,7 @@ public class Human extends characters{
                         board[humanXcord][humanYcord] = "\u0260";
                     }
                 }
-                super.printarray(board);
+                //super.printarray(board);
                 leftovers(anygoblinsleft);
                 return board;
 
